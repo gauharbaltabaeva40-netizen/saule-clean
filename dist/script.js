@@ -97,3 +97,16 @@ document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
     if (typeof gtag_report_conversion === 'function') gtag_report_conversion();
   });
 });
+
+// Track WhatsApp contact clicks as Google Ads conversions.
+document.querySelectorAll('[data-whatsapp]').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-18467994322/aoh2CIuNt4cdENL1nOZE',
+        value: 1.0,
+        currency: 'USD'
+      });
+    }
+  });
+});
