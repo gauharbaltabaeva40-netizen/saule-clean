@@ -9,6 +9,20 @@
   gtag('js', new Date());
 
   gtag('config', 'AW-18467994322');
+
+  // Google Ads phone-click conversion tracking
+  function gtag_report_conversion(url) {
+    const callback = function () {
+      if (typeof url !== "undefined" && url) window.location = url;
+    };
+    gtag("event", "conversion", {
+      send_to: "AW-18467994322/sHyfCJeDtocdENL1nOZE",
+      value: 1.0,
+      currency: "USD",
+      event_callback: callback
+    });
+    return false;
+  }
 </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
