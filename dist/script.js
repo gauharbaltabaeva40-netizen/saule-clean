@@ -90,3 +90,10 @@ document.querySelector("#current-year").textContent = String(new Date().getFullY
 let savedLanguage = "ru";
 try { savedLanguage = localStorage.getItem("taza-nur-language") || "ru"; } catch {}
 setLanguage(savedLanguage);
+
+// Track phone link clicks as Google Ads conversions.
+document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (typeof gtag_report_conversion === 'function') gtag_report_conversion();
+  });
+});
